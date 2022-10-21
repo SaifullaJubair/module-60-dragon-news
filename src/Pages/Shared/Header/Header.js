@@ -3,15 +3,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import LeftSideNav from '../LeftSideNav/LeftSideNav';
-import RightSideNav from '../RightSideNav/RightSideNav';
+import { Link } from 'react-router-dom';
+// import LeftSideNav from '../LeftSideNav/LeftSideNav';
+// import RightSideNav from '../RightSideNav/RightSideNav';
 
 
 const Header = () => {
    return (
       <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
          <Container>
-            <Navbar.Brand href="#home">Dragon-News</Navbar.Brand>
+            <Navbar.Brand><Link to='/'>Dragon-News</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="me-auto">
@@ -35,12 +36,12 @@ const Header = () => {
                      Dank memes
                   </Nav.Link>
                </Nav>
-               <div className='d-lg-none'>
+               {/* <div className='d-lg-none'>
                   <LeftSideNav></LeftSideNav>
                </div>
                <div className='d-lg-none'>
                   <RightSideNav></RightSideNav>
-               </div>
+               </div> */}
             </Navbar.Collapse>
          </Container>
       </Navbar>
