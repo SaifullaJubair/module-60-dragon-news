@@ -2,30 +2,30 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image'
-import { BsFillBookmarkStarFill, BsFillShareFill } from "react-icons/bs";
+import { BsEyeFill, BsFillBookmarkStarFill, BsFillShareFill, BsStarFill } from "react-icons/bs";
 
 const NewsSummaryCard = ({ news }) => {
    console.log(news);
-   const { _id, title, author, details, image_url, total_view } = news
+   const { _id, title, author, details, image_url, total_view, rating } = news
    return (
-      <Card className="mb-5">
+      <Card className="mb-5 shadow">
          <Card.Header className='d-flex justify-content-between align-items-center'>
             <div className='d-flex align-items-center'>
                <Image
                   className='me-2'
                   roundedCircle
-                  src={author.img}
+                  src={author?.img}
                   style={{ height: '60px' }}
                ></Image>
                <div>
                   <p>
-                     {author.name}
+                     {author?.name}
                   </p>
 
                </div>
             </div>
             <div>
-               <BsFillBookmarkStarFill />
+               <BsFillBookmarkStarFill className='me-2' />
                <BsFillShareFill />
             </div>
          </Card.Header>
@@ -44,10 +44,17 @@ const NewsSummaryCard = ({ news }) => {
             </Card.Text>
 
          </Card.Body>
-         <Card.Footer className="text-muted">
-            <p>
-               {author.published_date}
-            </p>
+         <Card.Footer className="d-flex justify-content-between align-items-center">
+            <div>
+               {author?.published_date}
+            </div>
+            <div className=' d-flex align-items-center'>
+               <BsStarFill className='text-warning me-1' />
+               <span>{rating?.number}</span>
+               <span className='ms-1'>{rating?.badge}</span>
+               <BsEyeFill className='ms-3 me-1' />
+               {total_view}
+            </div>
          </Card.Footer>
       </Card>
    );
