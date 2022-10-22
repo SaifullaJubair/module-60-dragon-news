@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-import { useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
@@ -23,16 +24,24 @@ const Login = () => {
             const user = res.user
             console.log(user);
             form.reset()
-            navigate(from, { replace: true })
+            if (user.emailVerified) {
+               navigate(from, { replace: true })
+            }
+            else {
+               toast.error('Your email not verified')
+            }
             setError('')
+            toast.success('Successful Login')
          })
          .catch(error => {
             console.error(error)
-            setError(error.message)
+            // setError(error.message)
+            toast.error(error.message)
          })
    }
    return (
       <Form onSubmit={handleSubmit} >
+         <h2>Login</h2>
          <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control name='email' type="email" placeholder="Enter email" />
@@ -43,12 +52,14 @@ const Login = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control name='password' type="password" placeholder="Password" />
          </Form.Group>
+         <Link to='/login'><Button variant="link" className='text-dark'>Don't have any account? SignUp</Button></Link>
          <p className='text-danger'>
             {error}
          </p>
          <Button variant="primary" type="submit">
             Login
          </Button>
+
       </Form>
    );
 };
