@@ -39,7 +39,7 @@ const Header = () => {
                   </NavDropdown>
                </Nav>
                <Nav>
-                  <Nav.Link href="#deets">
+                  <div>
 
                      {
                         user?.uid ?
@@ -55,7 +55,7 @@ const Header = () => {
                      }
 
 
-                  </Nav.Link>
+                  </div>
                   <Nav.Link eventKey={2} href="#memes">
                      {user?.photoURL ?
                         <Image

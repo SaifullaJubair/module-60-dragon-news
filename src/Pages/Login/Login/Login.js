@@ -26,12 +26,12 @@ const Login = () => {
             form.reset()
             if (user.emailVerified) {
                navigate(from, { replace: true })
+               toast.success('Successful Login')
             }
             else {
                toast.error('Your email not verified')
             }
             setError('')
-            toast.success('Successful Login')
          })
          .catch(error => {
             console.error(error)
