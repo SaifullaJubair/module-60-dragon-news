@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image'
 import { BsEyeFill, BsFillBookmarkStarFill, BsFillShareFill, BsStarFill } from "react-icons/bs";
 
 const NewsSummaryCard = ({ news }) => {
-   console.log(news);
+   // console.log(news);
    const { _id, title, author, details, image_url, total_view, rating } = news
    return (
       <Card className="mb-5 shadow">
@@ -37,7 +37,7 @@ const NewsSummaryCard = ({ news }) => {
             <Card.Text>
                {
                   details.length > 250 ?
-                     <p>{details.slice(0, 250) + '...'} <Link to={`/news/${_id}`}>Read More</Link> </p>
+                     <p>{details.slice(0, 250) + '...'} <Link to={`/news/${_id}`}>Read More</Link></p>
                      :
                      <p>{details}</p>
                }

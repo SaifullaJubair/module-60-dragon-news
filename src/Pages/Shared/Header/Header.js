@@ -6,7 +6,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
-import { Button, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 
 const Header = () => {
