@@ -24,23 +24,11 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="me-auto">
-                  <Nav.Link href="#features">All News</Nav.Link>
-                  <Nav.Link href="#pricing">Pricing</Nav.Link>
-                  <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                     <NavDropdown.Item href="#action/3.2">
-                        Another action
-                     </NavDropdown.Item>
-                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                     <NavDropdown.Divider />
-                     <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                     </NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link >All News</Nav.Link>
+                  <Nav.Link >Pricing</Nav.Link>
                </Nav>
                <Nav>
-                  <div>
-
+                  <nav>
                      {
                         user?.uid ?
                            <>
@@ -49,23 +37,23 @@ const Header = () => {
                            </>
                            :
                            <>
-                              <Link to='/login'>Login</Link>
-                              <Link to='/register'>Register</Link>
+                              <Link className='me-2 text-decoration-none text-muted' to='/login'>Login</Link>
+                              <Link to='/register' className='text-decoration-none text-muted'>Register</Link>
                            </>
                      }
-
-
-                  </div>
-                  <Nav.Link eventKey={2} href="#memes">
+                  </nav>
+                  <Link to='/profile'>
                      {user?.photoURL ?
                         <Image
-                           style={{ height: '30px' }}
+                           style={{ height: '40px' }}
                            roundedCircle
+                           className='ms-2'
                            src={user?.photoURL}>
                         </Image>
-                        : <FaUser></FaUser>
+                        :
+                        <FaUser className='ms-2'></FaUser>
                      }
-                  </Nav.Link>
+                  </Link>
                </Nav>
 
             </Navbar.Collapse>
